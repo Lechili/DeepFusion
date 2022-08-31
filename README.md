@@ -1,2 +1,2 @@
-# DeepFusion
-Repository for the paper "DEEP FUSION OF MULTI-OBJECT DENSITIES USING TRANSFORMER".
+# Introduction
+This repository contains the code for the paper "DEEP FUSION OF MULTI-OBJECT DENSITIES USING TRANSFORMER". The code was developed as joint effort by Lechi Li, Chen Dai, Yuxuan Xia and Lennart Svensson, and was based on the code available at the repositories for [TPMBM](https://github.com/Agarciafernandez/MTT/tree/master/TPMBM%20filter) and [MT3v2](https://github.com/JulianoLagana/MT3v2).
