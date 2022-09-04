@@ -1,0 +1,57 @@
+general:
+    pytorch_and_numpy_seed: 210631160  # Seeds pytorch and numpy (but not the data generator). `null` for random seed
+
+dataset:
+    training_data: '' # Enter path and name of training data
+    training_data: '' # Enter path and name of the data for ppp tuning
+    test_data: ''     # Enter path and name of test data
+    scenario: 'S1'    #  S1,S2,or S3
+    predicts: 'all'
+    task: 'normal'    # normal or noise
+    training_steps: '400k'
+
+arch:
+    type: 'ddetr_v2'
+    num_queries: 10
+    d_model: 256
+    d_detections: 18 # 15 for scenario 1 and 2, 18 for scenario 3
+    use_nerf: False
+    multires: 5
+    encoder:
+        n_heads: 8
+        n_layers: 6
+        dim_feedforward: 2048
+        dropout: 0.1
+    decoder:
+        n_heads: 8
+        n_layers: 6
+        dim_feedforward: 2048
+        dropout: 0.1
+    d_prediction_hidden: 128
+    n_prediction_layers: 3
+    with_state_refine: True
+    two_stage: True
+    false_detect_embedding: False
+
+loss:
+    type: 'detr'
+    vector_length: 21 # 18 for scenario 1 and 2, 21 for scenario 3
+    return_intermediate: True
+
+training:
+    n_gradient_steps: 100000
+    learning_rate: 0.00005
+    batch_size: 32
+    n_splits: 1
+    reduce_lr_patience: 50000
+    reduce_lr_factor: 0.25
+    device: 'auto' # can be 'cpu', 'cuda', or 'auto' (use GPU if available)
+    loops: 4
+
+debug:
+    print_interval: 100
+    print_reduce_lr_messages: True
+    log_interval: 1
+    #eval_model: 4
+    #eval_length: 25000
+    evaluate_gospa_interval: 3

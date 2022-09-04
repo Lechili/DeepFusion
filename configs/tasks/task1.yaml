@@ -1,0 +1,10 @@
+data_generation:
+    n_timesteps: 10
+    n_sensors: 10
+    max_objects:  128
+    dt: 0.1
+    field_of_view:
+        min_range: -10
+        max_range: 10
+        max_range_rate: 30
+    prediction_target: 'position_and_velocity'
